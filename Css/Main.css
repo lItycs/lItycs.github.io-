@@ -44,69 +44,6 @@ body {
     0 0 30px #f0d9ff;
 }
 
-/* ===== ПЕРЕМИКАЧ ТЕМ ===== */
-.theme-switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999; /* поверх усіх елементів */
-}
-
-#themeButton {
-  background: #5b1bd1;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: 'Noto Sans', sans-serif;
-  transition: background 0.3s;
-}
-
-#themeButton:hover {
-  background: #7a3aff;
-}
-
-#themeMenu {
-  position: absolute;
-  top: 50px;
-  right: 0;
-  background: #2e0854;
-  color: white;
-  list-style: none;
-  margin: 0;
-  padding: 10px 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  width: 220px;
-  z-index: 10000;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.25s ease;
-}
-
-#themeMenu.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-#themeMenu li {
-  padding: 10px 16px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-#themeMenu li:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.hidden {
-  display: none;
-}
-
-
 /* ===== ГОЛОВНА СЕКЦІЯ ===== */
 .hero {
   height: 100vh;
@@ -160,6 +97,7 @@ body {
   transform: scale(1.05);
 }
 
+/* ===== СЕКЦІЯ КОМАНДИ ===== */
 .team-section {
   background-color: #120020;
   text-align: center;
@@ -192,24 +130,4 @@ body {
 .player-card.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* ===== НОВОРІЧНІ ТЕМИ ===== */
-body.xmas-night {
-  background: linear-gradient(to bottom, #000010, #12003d);
-}
-
-body.xmas-day {
-  background: linear-gradient(to bottom, #87cefa, #fff);
-  color: #111;
-}
-
-body.xmas-day .header {
-  background: #c7e0ff;
-  border-color: #fff;
-}
-
-body.xmas-night .header {
-  background: #050018;
-  border-color: #3a005a;
 }
