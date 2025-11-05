@@ -1,0 +1,29 @@
+body {
+  background: radial-gradient(circle at center, #140028, #000);
+  color: #fff;
+}
+
+.header {
+  background: black;
+  border-bottom: 1px solid #3a005a;
+}
+
+.header-title {
+  color: white;
+  text-shadow:
+    0 0 10px #ffffff,
+    0 0 20px #b472ff,
+    0 0 30px #8a2be2;
+}
+
+.next-button {
+  background: linear-gradient(90deg, #8a2be2, #b472ff);
+}
+
+.team-section {
+  background-color: #120020;
+}
+
+.player-card {
+  background-color: #1c0130;
+}

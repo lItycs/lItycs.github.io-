@@ -1,0 +1,35 @@
+body {
+  background: linear-gradient(to bottom, #e8f9ff, #b3e5fc);
+  color: #002244;
+}
+
+.header {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid #a4d4ff;
+}
+
+.header-title {
+  color: #004488;
+  text-shadow:
+    0 0 10px #a4d4ff,
+    0 0 20px #ffffff,
+    0 0 40px #b3e5fc;
+}
+
+.hero {
+  background: url('../images/snow-day-bg.jpg') center/cover no-repeat;
+}
+
+.next-button {
+  background: linear-gradient(90deg, #66ccff, #99e6ff);
+}
+
+.team-section {
+  background: #d8f3ff;
+}
+
+.player-card {
+  background: rgba(255,255,255,0.8);
+  color: #002244;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DURMIND</title>
+  <link rel="stylesheet" href="./Css/Main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- ===== ШАПКА ===== -->
+  <header class="header">
+    <canvas id="headerStars"></canvas>
+    <h1 class="header-title">DURMIND</h1>
+
+    <div class="theme-switcher">
+  <button id="themeButton">🎨 Змінити стиль</button>
+  <ul id="themeMenu" class="hidden">
+    <li data-theme="default">Звичайне оформлення</li>
+    <li data-theme="newyear-day">Новорічне (Денне)</li>
+    <li data-theme="newyear-night">Новорічне (Нічне)</li>
+  </ul>
+</div>
+  </header>
+
+  <!-- ===== ГОЛОВНА СЕКЦІЯ ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <img src="./photo/DRM.png" alt="Team Logo" class="team-logo" />
+      <h2 class="team-subtitle">Ласкаво просимо у DURMIND</h2>
+      <p class="team-description">
+        DURMIND — команда креативних гравців та розробників, об’єднаних ідеєю створювати інноваційні ігрові рішення.
+      </p>
+      <button class="next-button" id="nextButton">Далі</button>
+    </div>
+  </section>
+
+  <!-- ===== СЕКЦІЯ ГРАВЦІВ ===== -->
+  <section class="team-section" id="teamSection">
+    <h2>Наша команда</h2>
+    <div class="players">
+      <div class="player-card"><img src="img/player1.jpg" alt=""><p>Гравець 1</p></div>
+      <div class="player-card"><img src="img/player2.jpg" alt=""><p>Гравець 2</p></div>
+      <div class="player-card"><img src="img/player3.jpg" alt=""><p>Гравець 3</p></div>
+    </div>
+  </section>
+
+  <script src="./JS/Main.js"></script>
+</body>
+</html>

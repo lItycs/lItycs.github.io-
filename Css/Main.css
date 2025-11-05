@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #080010;
+  color: #fff;
+  overflow-x: hidden;
+  transition: background 0.8s ease;
+}
+
+/* ===== ШАПКА ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  overflow: hidden;
+  border-bottom: 1px solid #3a005a;
+}
+
+#headerStars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.header-title {
+  position: relative;
+  z-index: 1;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2rem;
+  color: white;
+  letter-spacing: 5px;
+  text-shadow:
+    0 0 10px #b472ff,
+    0 0 20px #a050ff,
+    0 0 30px #f0d9ff;
+}
+
+/* ===== ПЕРЕМИКАЧ ТЕМ ===== */
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999; /* поверх усіх елементів */
+}
+
+#themeButton {
+  background: #5b1bd1;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Noto Sans', sans-serif;
+  transition: background 0.3s;
+}
+
+#themeButton:hover {
+  background: #7a3aff;
+}
+
+#themeMenu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #2e0854;
+  color: white;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  width: 220px;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.25s ease;
+}
+
+#themeMenu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#themeMenu li {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#themeMenu li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* ===== ГОЛОВНА СЕКЦІЯ ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background: radial-gradient(circle at center, #140028, #000);
+  padding-top: 80px;
+  position: relative;
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.team-logo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin-bottom: 25px;
+  object-fit: cover;
+}
+
+.team-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #d8bfff;
+}
+
+.team-description {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.next-button {
+  padding: 12px 35px;
+  font-size: 1rem;
+  border: none;
+  background: linear-gradient(90deg, #8a2be2, #b472ff);
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.next-button:hover {
+  transform: scale(1.05);
+}
+
+.team-section {
+  background-color: #120020;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.team-section h2 {
+  font-size: 2rem;
+  color: #b472ff;
+  margin-bottom: 40px;
+}
+
+.players {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.player-card {
+  background-color: #1c0130;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.8s ease, opacity 1s ease;
+}
+
+.player-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== НОВОРІЧНІ ТЕМИ ===== */
+body.xmas-night {
+  background: linear-gradient(to bottom, #000010, #12003d);
+}
+
+body.xmas-day {
+  background: linear-gradient(to bottom, #87cefa, #fff);
+  color: #111;
+}
+
+body.xmas-day .header {
+  background: #c7e0ff;
+  border-color: #fff;
+}
+
+body.xmas-night .header {
+  background: #050018;
+  border-color: #3a005a;
+}
