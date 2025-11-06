@@ -62,16 +62,24 @@
   }
 
   /* ---------- ПЛАВНИЙ СКРОЛ "ДАЛІ" ---------- */
-  const nextBtn = document.getElementById('nextButton');
-  const targetSection = document.getElementById('teamSection');
-
-  if (nextBtn && targetSection) {
-    nextBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const top = targetSection.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
-  }
+  const nextBtn = document.querySelector('#nextBtn, #nextButton'); 
+  const targetSection = document.querySelector('#teamSection, #team-info');
+  function smoothScrollTo(targetY, duration = 1400) 
+  { const startY = window.scrollY || window.pageYOffset; 
+    const distance = targetY - startY; 
+    let startTime = null; 
+    function anim(time) 
+    { if (!startTime) startTime = time; 
+      const elapsed = time - startTime; 
+      const t = Math.min(elapsed / duration, 1); 
+      const ease = 1 - Math.pow(1 - t, 3); 
+      window.scrollTo(0, startY + distance * ease); 
+      if (t < 1) requestAnimationFrame(anim); } requestAnimationFrame(anim); } 
+      if (nextBtn && targetSection) 
+        { nextBtn.addEventListener('click', (e) => { e.preventDefault(); 
+          nextBtn.classList.add('clicked'); const offsetTop = targetSection.getBoundingClientRect().top + window.scrollY; 
+          smoothScrollTo(offsetTop, 1400); 
+          setTimeout(() => nextBtn.classList.remove('clicked'), 700); }); }
 
   /* ---------- Анімація карток ---------- */
   const cards = document.querySelectorAll('.player-card');

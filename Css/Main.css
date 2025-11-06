@@ -97,6 +97,41 @@ body {
   transform: scale(1.05);
 }
 
+/* === 🌌 АНІМОВАНІ ІКОНКИ У HERO === */
+.hero-icons {
+  position: absolute;
+  top: 10%; /* підняли іконки ближче до верху */
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  pointer-events: none; /* щоб не заважали клікам */
+  z-index: 1;
+}
+
+.floating-icon {
+  position: absolute;
+  width: 400px; /* зробили меншими */
+  height: auto;
+  opacity: 0.85;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px #7b40ff);
+  transition: transform 0.3s ease;
+}
+
+/* Розташування іконок */
+.icon1 { top: 0%; left: 5%; animation-delay: 0s; transform: rotate(5deg); }
+.icon2 { top: 90%; left: 60%; animation-delay: 1s; transform: rotate(5deg); }
+.icon3 { top: 50%; left: 75%; animation-delay: 2s; transform: rotate(0deg); }
+.icon4 { top: 90%; left: 15%; animation-delay: 3s; transform: rotate(-5deg); }
+.icon5 { top: 0%; left: 60%; animation-delay: 4s; transform: rotate(8deg); }
+
+/* Анімація плавного руху */
+@keyframes float {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  50% { transform: translateY(-15px) scale(1.05) rotate(3deg); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); }
+}
+
 /* ===== СЕКЦІЯ КОМАНДИ ===== */
 .team-section {
   background-color: #120020;
