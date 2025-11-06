@@ -55,13 +55,14 @@ body {
   background: radial-gradient(circle at center, #140028, #000);
   padding-top: 80px;
   position: relative;
+  overflow: hidden;
 }
 
 .hero-content {
   z-index: 2;
 }
 
-.team-logo {
+.logo {
   width: 180px;
   height: 180px;
   border-radius: 50%;
@@ -69,13 +70,14 @@ body {
   object-fit: cover;
 }
 
-.team-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+.team-name {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5rem;
   color: #d8bfff;
+  margin-bottom: 10px;
 }
 
-.team-description {
+.description {
   max-width: 600px;
   margin: 0 auto 30px;
   font-size: 1.1rem;
@@ -100,17 +102,17 @@ body {
 /* === 🌌 АНІМОВАНІ ІКОНКИ У HERO === */
 .hero-icons {
   position: absolute;
-  top: 10%; /* підняли іконки ближче до верху */
+  top: 8%;
   left: 0;
   width: 100%;
-  height: 40vh;
-  pointer-events: none; /* щоб не заважали клікам */
+  height: 50vh;
+  pointer-events: none;
   z-index: 1;
 }
 
 .floating-icon {
   position: absolute;
-  width: 400px; /* зробили меншими */
+  width: 250px;
   height: auto;
   opacity: 0.85;
   animation: float 6s ease-in-out infinite;
@@ -118,14 +120,13 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* Розташування іконок */
-.icon1 { top: 0%; left: 5%; animation-delay: 0s; transform: rotate(5deg); }
-.icon2 { top: 90%; left: 60%; animation-delay: 1s; transform: rotate(5deg); }
-.icon3 { top: 50%; left: 75%; animation-delay: 2s; transform: rotate(0deg); }
-.icon4 { top: 90%; left: 15%; animation-delay: 3s; transform: rotate(-5deg); }
-.icon5 { top: 0%; left: 60%; animation-delay: 4s; transform: rotate(8deg); }
+/* Розташування іконок (для великих екранів) */
+.icon1 { top: 15%; left: 5%; animation-delay: 0s; transform: rotate(5deg); }
+.icon2 { top: 110%; left: 70%; animation-delay: 1s; transform: rotate(5deg); }
+.icon3 { top: 58%; left: 75%; animation-delay: 2s; transform: rotate(0deg); }
+.icon4 { top: 124%; left: 12%; animation-delay: 3s; transform: rotate(-5deg); }
+.icon5 { top: 12%; left: 57%; animation-delay: 4s; transform: rotate(8deg); }
 
-/* Анімація плавного руху */
 @keyframes float {
   0% { transform: translateY(0) scale(1) rotate(0deg); }
   50% { transform: translateY(-15px) scale(1.05) rotate(3deg); }
@@ -165,4 +166,60 @@ body {
 .player-card.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ===== 📱 АДАПТИВНІСТЬ ===== */
+
+/* --- Планшети --- */
+@media (max-width: 1024px) {
+  .floating-icon {
+    width: 180px;
+  }
+
+  .icon1 { top: 29%; left: 10%; }
+  .icon2 { top: 80%; left: 60%; }
+  .icon3 { top: 60%; left: 74%; }
+  .icon4 { top: 80%; left: 10%; }
+  .icon5 { top: 26%; left: 57% }
+
+  .team-name {
+    font-size: 2rem;
+  }
+}
+
+/* --- Телефони --- */
+@media (max-width: 600px) {
+  .floating-icon {
+    width: 120px;
+    opacity: 0.75;
+  }
+
+  .icon1 { top: 45%; left: 5%; }
+  .icon2 { top: 80%; left: 60%; }
+  .icon3 { top: 68%; left: 73%; }
+  .icon4 { top: 80%; left: 5%; }
+  .icon5 { top: 50%; left: 65%; }
+
+  .hero {
+    padding-top: 100px;
+  }
+
+  .logo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .team-name {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  .next-button {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
 }
