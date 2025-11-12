@@ -124,10 +124,9 @@ body {
 
 /* ===== РОЗТАШУВАННЯ ІКОН ===== */
 .icon1 { top: 15%; left: 5%; animation-delay: 0s; transform: rotate(0deg); }
-.icon2 { top: 110%; left: 70%; animation-delay: 1s; transform: rotate(0deg); }
-.icon3 { top: 58%; left: 75%; animation-delay: 2s; transform: rotate(0deg); }
+.icon2 { top: 110%; left: 73%; animation-delay: 1s; transform: rotate(0deg); }
+.icon3 { top: 23%; left: 75%; animation-delay: 2s; transform: rotate(0deg); }
 .icon4 { top: 124%; left: 12%; animation-delay: 3s; transform: rotate(0deg); }
-.icon5 { top: 12%; left: 57%; animation-delay: 4s; transform: rotate(0deg); }
 
 @keyframes float {
   0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
@@ -176,10 +175,9 @@ body {
   }
 
   .icon1 { top: 25%; left: 10%; }
-  .icon2 { top: 90%; left: 60%; }
-  .icon3 { top: 60%; left: 74%; }
+  .icon2 { top: 90%; left: 73%; }
+  .icon3 { top: 28%; left: 74%; }
   .icon4 { top: 90%; left: 10%; }
-  .icon5 { top: 20%; left: 57%; }
 }
 
 @media (max-width: 768px) {
@@ -189,10 +187,9 @@ body {
   }
 
   .icon1 { top: 35%; left: 5%; }
-  .icon2 { top: 80%; left: 60%; }
-  .icon3 { top: 68%; left: 73%; }
+  .icon2 { top: 80%; left: 65%; }
+  .icon3 { top: 39%; left: 68%; }
   .icon4 { top: 82%; left: 8%; }
-  .icon5 { top: 45%; left: 65%; }
 
   .logo {
     width: 130px;
@@ -223,8 +220,187 @@ body {
   }
 
   .icon1 { top: 45%; left: 5%; }
-  .icon2 { top: 78%; left: 55%; }
-  .icon3 { top: 68%; left: 75%; }
+  .icon2 { top: 78%; left: 75%; }
+  .icon3 { top: 45%; left: 75%; }
   .icon4 { top: 82%; left: 5%; }
-  .icon5 { top: 50%; left: 60%; }
+}
+
+
+/* ===== 🏆 СЕКЦІЯ ІВЕНТІВ ===== */
+.events {
+  background: linear-gradient(180deg, #0e001c 0%, #140028 100%);
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.events h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2rem;
+  color: #b472ff;
+  margin-bottom: 60px;
+  text-shadow: 0 0 10px #8a2be2;
+}
+
+.events-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+}
+
+.events-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, #8a2be2 0%, #b472ff 100%);
+  opacity: 0.4;
+}
+
+.event-card {
+  background: rgba(28, 1, 48, 0.9);
+  border: 1px solid rgba(180, 114, 255, 0.3);
+  border-radius: 15px;
+  padding: 30px 25px;
+  width: min(90%, 600px);
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.event-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 25px rgba(180, 114, 255, 0.6);
+}
+
+.event-card h3 {
+  font-family: "Orbitron", sans-serif;
+  color: #d8bfff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.event-card p {
+  color: #e6d8ff;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.event-card .date {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #b472ff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Стан для минулих / майбутніх */
+.event-card.past {
+  border-left: 4px solid #8a2be2;
+}
+
+.event-card.upcoming {
+  border-left: 4px solid #b472ff;
+}
+
+/* ===== 🎮 STEAM-ПОСИЛАННЯ ===== */
+.steam-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: linear-gradient(90deg, #8a2be2, #b472ff);
+  border-radius: 25px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.steam-link:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #b472ff;
+}
+
+/* ===== 🔗 ФУТЕР / КОНТАКТИ ===== */
+.footer {
+  background: #0a0015;
+  text-align: center;
+  padding: 80px 20px 40px;
+  position: relative;
+  border-top: 1px solid #3a005a;
+}
+
+.footer h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8rem;
+  color: #b472ff;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px #8a2be2;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.social-links a {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #8a2be2, #3a005a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #b472ff;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 5px #fff);
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: #bbb;
+  opacity: 0.8;
+}
+
+/* ===== 📱 АДАПТИВНІСТЬ ===== */
+@media (max-width: 768px) {
+  .events-timeline::before {
+    left: 5%;
+  }
+  .event-card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links a {
+    width: 40px;
+    height: 40px;
+  }
+  .social-links img {
+    width: 20px;
+    height: 20px;
+  }
 }
