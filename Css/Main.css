@@ -1,166 +1,248 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
+
+/* ====== ОСНОВА ====== */
+:root {
+  --accent: #b472ff;
+  --bg-dark: #06000e;
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --text-main: #fff;
+  --text-muted: #c8b8ff;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
-  background-color: #080010;
-  color: #fff;
+  font-family: "Manrope", sans-serif;
+  background: radial-gradient(circle at top, #12002b, #050009 80%);
+  color: var(--text-main);
   overflow-x: hidden;
-  transition: background 0.8s ease;
 }
 
-/* ===== ШАПКА ===== */
-.header {
+/* ====== HEADER ====== */
+.glass-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
-  background: #000;
+  padding: 16px 10%;
+  background: transparent; /* 🔹 Повністю прозорий */
+  backdrop-filter: none;   /* Без розмиття */
+  z-index: 100;
+  border-bottom: none;     /* Без лінії розділення */
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+/* === BRAND === */
+.brand-wrapper {
+  position: relative;
+  width: 180px;
+  height: 55px;
+  border-radius: 40px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px); /* 🔹 Скляний ефект залишається тільки тут */
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
-  border-bottom: 1px solid #3a005a;
-  overflow: hidden;
+  box-shadow: 0 0 20px rgba(180, 114, 255, 0.15);
 }
 
-#headerStars {
+.brand-wrapper canvas {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-.header-title {
+.brand {
   position: relative;
   z-index: 1;
-  font-family: "Orbitron", sans-serif;
-  font-size: 2rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
   color: #fff;
-  letter-spacing: 5px;
-  text-shadow:
-    0 0 10px #b472ff,
-    0 0 20px #a050ff,
-    0 0 30px #f0d9ff;
 }
 
-/* ===== ГОЛОВНА СЕКЦІЯ ===== */
+/* === NAV === */
+.nav {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #ffffffd0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(180, 114, 255, 0.1);
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px rgba(180, 114, 255, 0.35);
+}
+
+
+/* ====== HERO ====== */
 .hero {
   height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(circle at center, #140028, #000);
-  padding-top: 80px;
   position: relative;
+  padding: 120px 20px 60px;
+  background: radial-gradient(circle at center, #12002b, #000);
   overflow: hidden;
 }
 
 .hero-content {
   z-index: 2;
+  padding: 40px;
+  border-radius: 30px;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 0 40px rgba(180, 114, 255, 0.1);
 }
 
-/* ===== ЛОГО ===== */
-.logo {
-  width: clamp(130px, 18vw, 180px);
-  height: clamp(130px, 18vw, 180px);
+.hero-logo {
+  width: clamp(120px, 20vw, 180px);
+  height: clamp(120px, 20vw, 180px);
   border-radius: 50%;
-  margin-bottom: 25px;
   object-fit: cover;
+  margin-bottom: 25px;
+  box-shadow: 0 0 20px rgba(180, 114, 255, 0.3);
 }
 
-.team-name {
-  font-family: "Orbitron", sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  color: #d8bfff;
+.hero-title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 10px 0;
+}
+
+.hero-title span {
+  color: var(--accent);
+}
+
+.hero-text {
+  max-width: 600px;
+  margin: 0 auto 25px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.primary-btn {
+  background: linear-gradient(90deg, #8a2be2, #b472ff);
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(180, 114, 255, 0.6);
+}
+
+/* ====== SECTIONS ====== */
+.section {
+  padding: 100px 10%;
+  text-align: center;
+  position: relative;
+}
+
+.glass-section {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-glass);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 50px;
+}
+
+/* ====== CARDS GRID ====== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* ====== EVENT CARDS ====== */
+.event-card {
+  padding: 30px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(16px);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(180, 114, 255, 0.3);
+}
+
+.event-card h3 {
+  color: #fff;
+  font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
-.description {
-  max-width: 600px;
-  margin: 0 auto 30px;
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
-  line-height: 1.6;
-  padding: 0 15px;
+.event-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
 }
 
-.next-button {
-  padding: 12px 35px;
-  font-size: clamp(0.9rem, 1vw, 1rem);
-  border: none;
-  background: linear-gradient(90deg, #8a2be2, #b472ff);
-  color: white;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
+.event-card span {
+  font-size: 0.85rem;
+  color: #a078ff;
 }
 
-.next-button:hover {
-  transform: scale(1.05);
-}
-
-/* === 🌌 ІКОНИ === */
-.hero-icons {
-  position: absolute;
-  top: 8%;
-  left: 0;
-  width: 100%;
-  height: 50vh;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.floating-icon {
-  position: absolute;
-  width: clamp(120px, 15vw, 250px);
-  height: auto;
-  opacity: 0.85;
-  animation: float 6s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px #7b40ff);
-  transition: transform 0.3s ease;
-}
-
-/* ===== РОЗТАШУВАННЯ ІКОН ===== */
-.icon1 { top: 15%; left: 5%; animation-delay: 0s; transform: rotate(0deg); }
-.icon2 { top: 110%; left: 73%; animation-delay: 1s; transform: rotate(0deg); }
-.icon3 { top: 23%; left: 75%; animation-delay: 2s; transform: rotate(0deg); }
-.icon4 { top: 124%; left: 12%; animation-delay: 3s; transform: rotate(0deg); }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
-  50% { transform: translateY(-15px) scale(1.05) rotate(3deg); }
-}
-
-/* ===== СЕКЦІЯ КОМАНДИ ===== */
-.team-section {
-  background-color: #120020;
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.team-section h2 {
-  font-size: 2rem;
-  color: #b472ff;
-  margin-bottom: 40px;
-}
-
-.players {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
+/* ====== TEAM CARDS ====== */
 .player-card {
-  background-color: #1c0130;
-  padding: 20px;
-  border-radius: 15px;
-  width: clamp(200px, 25vw, 250px);
+  padding: 25px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(16px);
+  text-align: center;
+  transition: all 0.3s ease;
   opacity: 0;
-  transform: translateY(30px);
-  transition: transform 0.8s ease, opacity 1s ease;
+  transform: translateY(40px);
 }
 
 .player-card.visible {
@@ -168,239 +250,364 @@ body {
   transform: translateY(0);
 }
 
-/* ===== АДАПТИВНІСТЬ ===== */
-@media (max-width: 1024px) {
-  .floating-icon {
-    width: clamp(150px, 20vw, 200px);
-  }
-
-  .icon1 { top: 25%; left: 10%; }
-  .icon2 { top: 90%; left: 73%; }
-  .icon3 { top: 28%; left: 74%; }
-  .icon4 { top: 90%; left: 10%; }
-}
-
-@media (max-width: 768px) {
-  .floating-icon {
-    width: clamp(100px, 25vw, 150px);
-    opacity: 0.75;
-  }
-
-  .icon1 { top: 35%; left: 5%; }
-  .icon2 { top: 80%; left: 65%; }
-  .icon3 { top: 39%; left: 68%; }
-  .icon4 { top: 82%; left: 8%; }
-
-  .logo {
-    width: 130px;
-    height: 130px;
-  }
-
-  .team-name {
-    font-size: 1.8rem;
-  }
-
-  .description {
-    font-size: 1rem;
-  }
-
-  .next-button {
-    padding: 10px 25px;
-    font-size: 0.9rem;
-  }
-
-  .hero {
-    padding-top: 100px;
-  }
-}
-
-@media (max-width: 480px) {
-  .floating-icon {
-    width: clamp(80px, 30vw, 120px);
-  }
-
-  .icon1 { top: 45%; left: 5%; }
-  .icon2 { top: 78%; left: 75%; }
-  .icon3 { top: 45%; left: 75%; }
-  .icon4 { top: 82%; left: 5%; }
-}
-
-
-/* ===== 🏆 СЕКЦІЯ ІВЕНТІВ ===== */
-.events {
-  background: linear-gradient(180deg, #0e001c 0%, #140028 100%);
-  padding: 100px 20px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.events h2 {
-  font-family: "Orbitron", sans-serif;
-  font-size: 2rem;
-  color: #b472ff;
-  margin-bottom: 60px;
-  text-shadow: 0 0 10px #8a2be2;
-}
-
-.events-timeline {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  position: relative;
-}
-
-.events-timeline::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, #8a2be2 0%, #b472ff 100%);
-  opacity: 0.4;
-}
-
-.event-card {
-  background: rgba(28, 1, 48, 0.9);
-  border: 1px solid rgba(180, 114, 255, 0.3);
-  border-radius: 15px;
-  padding: 30px 25px;
-  width: min(90%, 600px);
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  position: relative;
-  z-index: 2;
-}
-
-.event-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 0 25px rgba(180, 114, 255, 0.6);
-}
-
-.event-card h3 {
-  font-family: "Orbitron", sans-serif;
-  color: #d8bfff;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.event-card p {
-  color: #e6d8ff;
-  font-size: 1rem;
-  line-height: 1.6;
+.player-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 20px;
   margin-bottom: 15px;
 }
 
-.event-card .date {
-  display: inline-block;
-  font-size: 0.9rem;
-  color: #b472ff;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Стан для минулих / майбутніх */
-.event-card.past {
-  border-left: 4px solid #8a2be2;
-}
-
-.event-card.upcoming {
-  border-left: 4px solid #b472ff;
-}
-
-/* ===== 🎮 STEAM-ПОСИЛАННЯ ===== */
-.steam-link {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 16px;
-  background: linear-gradient(90deg, #8a2be2, #b472ff);
-  border-radius: 25px;
-  text-decoration: none;
+.player-card h3 {
   color: #fff;
+  font-size: 1.1rem;
+  margin: 8px 0;
+}
+
+.player-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.player-card a {
+  color: var(--accent);
+  text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: color 0.3s;
 }
 
-.steam-link:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 15px #b472ff;
+.player-card a:hover {
+  color: #fff;
 }
 
-/* ===== 🔗 ФУТЕР / КОНТАКТИ ===== */
+/* ====== FOOTER ====== */
 .footer {
-  background: #0a0015;
+  padding: 80px 10%;
   text-align: center;
-  padding: 80px 20px 40px;
-  position: relative;
-  border-top: 1px solid #3a005a;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid var(--border-glass);
+  backdrop-filter: blur(14px);
 }
 
 .footer h2 {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.8rem;
-  color: #b472ff;
-  margin-bottom: 40px;
-  text-shadow: 0 0 10px #8a2be2;
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
 }
 
-.social-links {
+.socials {
   display: flex;
   justify-content: center;
   gap: 25px;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
-.social-links a {
-  display: inline-block;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, #8a2be2, #3a005a);
+.socials img {
+  width: 28px;
+  height: 28px;
+  filter: invert(1) drop-shadow(0 0 6px rgba(180, 114, 255, 0.6));
+  transition: transform 0.3s ease;
+}
+
+.socials img:hover {
+  transform: scale(1.2);
+}
+
+.copy {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ====== ADAPTIVE ====== */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .brand-wrapper {
+    width: 160px;
+    height: 50px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .section {
+    padding: 80px 5%;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ====== АДАПТИВНІСТЬ ХЕДЕРА ====== */
+
+/* Для екранів до 1024px (планшети) */
+@media (max-width: 1024px) {
+  .glass-header {
+    padding: 14px 6%;
+  }
+
+  .header-inner {
+    gap: 25px;
+  }
+
+  .brand-wrapper {
+    width: 150px;
+    height: 50px;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+  }
+
+  .nav-btn {
+    padding: 6px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Для екранів до 768px (телефони у горизонталі / маленькі планшети) */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .brand-wrapper {
+    width: 140px;
+    height: 46px;
+  }
+
+  .brand {
+    font-size: 1rem;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav-btn {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    border-radius: 18px;
+  }
+}
+
+/* Для дуже малих екранів до 480px (смартфони вертикально) */
+@media (max-width: 480px) {
+  .glass-header {
+    padding: 12px 4%;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand-wrapper {
+    width: 130px;
+    height: 42px;
+  }
+
+  .brand {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav-btn {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    border-radius: 16px;
+  }
+}
+
+
+/* ====== АДАПТИВНІСТЬ HERO ====== */
+
+/* Для екранів до 1024px (планшети) */
+@media (max-width: 1024px) {
+  .hero {
+    padding-top: 140px;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .hero-content {
+    padding: 30px;
+  }
+
+  .hero-logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .hero-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* Для екранів до 768px (телефони горизонтально / малі планшети) */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 160px; /* 🔹 більше відступу, щоб header не перекривав логотип */
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .hero-content {
+    padding: 25px;
+    border-radius: 25px;
+    max-width: 95%;
+  }
+
+  .hero-logo {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 18px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .hero-title span {
+    font-size: 1.1rem;
+    display: block;
+    margin-top: 4px;
+  }
+
+  .hero-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+
+  .primary-btn {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Для дуже малих екранів (480px і менше — телефони вертикально) */
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 180px; /* 🔹 ще більший відступ зверху */
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .hero-content {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .hero-logo {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 15px;
+  }
+
+  .hero-title {
+    font-size: 1.3rem;
+  }
+
+  .hero-title span {
+    font-size: 1rem;
+  }
+
+  .hero-text {
+    font-size: 0.85rem;
+    text-align: justify;
+  }
+
+  .primary-btn {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+
+.Discord {
+  font-family: inherit;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #4f4dd9 0%,#2b60aa 100%);
+  color: white;
+  padding: 0.8em 1.2em;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
 }
 
-.social-links a:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #b472ff;
+.Discord:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-.social-links img {
-  width: 24px;
-  height: 24px;
-  filter: drop-shadow(0 0 5px #fff);
+.Discord:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.footer-text {
-  font-size: 0.9rem;
-  color: #bbb;
-  opacity: 0.8;
+.Discord span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
 }
 
-/* ===== 📱 АДАПТИВНІСТЬ ===== */
-@media (max-width: 768px) {
-  .events-timeline::before {
-    left: 5%;
-  }
-  .event-card {
-    width: 90%;
-  }
+.Discord svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transition: all 0.3s;
 }
 
-@media (max-width: 480px) {
-  .social-links a {
-    width: 40px;
-    height: 40px;
-  }
-  .social-links img {
-    width: 20px;
-    height: 20px;
-  }
+.Discord .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-right: 0.5em;
+  transition: all 0.3s;
 }
+
+.Discord:hover .svg-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.Discord:hover svg {
+  transform: rotate(360deg);
+}
+
+/* credits to uiverse.io/profile/eirikvold */
