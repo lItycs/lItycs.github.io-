@@ -88,3 +88,139 @@
     cards.forEach(card => observer.observe(card));
   }
 })();
+
+
+const discordButton = document.querySelector('.Discord');
+if (discordButton) {
+  discordButton.addEventListener('click', () => {
+    window.open('https://discord.gg/rnnyVrwRfz', '_blank');
+  });
+}
+
+
+"/* ===== ДОДАВАННЯ ІНФОРМАЦІЇ ПРО ГРАВЦІВ ===== */"
+const playersInfo = {
+  "Waysiemens": {
+    description: "Лідер команди, відповідає за стратегію, організацію і координацію гравців. Має великий досвід і стабільну стрілецьку форму.",
+    socials: {
+      steam: "https://steamcommunity.com/id/waysiemens/",
+      discord: "https://discord.gg/example",
+      instagram: "https://instagram.com/example"
+    }
+  },
+  "SMAKOVV": {
+    description: "Майстер з точності та стабільності. Один з ключових членів команди у клатч-ситуаціях.",
+    socials: {
+      steam: "https://steamcommunity.com/profiles/76561199237357499",
+      instagram: "",
+      twitch: ""
+    }
+  },
+  "Bareski": {
+    description: "Майстер з точності та стабільності. Один з ключових членів команди у клатч-ситуаціях.",
+    socials: {
+      steam: "https://steamcommunity.com/id/bAresk1",
+      instagram: "",
+      twitch: ""
+    }
+  },
+  "Edgar": {
+    description: "Майстер з точності та стабільності. Один з ключових членів команди у клатч-ситуаціях.",
+    socials: {
+      steam: "https://steamcommunity.com/profiles/76561199139831895",
+      instagram: "",
+      twitch: ""
+    }
+  },
+  "Mental": {
+    description: "Майстер з точності та стабільності. Один з ключових членів команди у клатч-ситуаціях.",
+    socials: {
+      steam: "https://steamcommunity.com/profiles/76561198949993671",
+      instagram: "",
+      twitch: ""
+    }
+  },
+  "TUR-9000": {
+    description: "Майстер з точності та стабільності. Один з ключових членів команди у клатч-ситуаціях.",
+    socials: {
+      steam: "https://steamcommunity.com/profiles/76561198392497468",
+      instagram: "",
+      twitch: ""
+    }
+  },
+  "Prok": {
+    description: "Майстер з точності та стабільності. Один з ключових членів команди у клатч-ситуаціях.",
+    socials: {
+      steam: "https://steamcommunity.com/profiles/76561199119910502",
+      instagram: "",
+      twitch: ""
+    }
+  },
+  "Ger4eek": {
+    description: "Майстер з точності та стабільності. Один з ключових членів команди у клатч-ситуаціях.",
+    socials: {
+      steam: "https://steamcommunity.com/profiles/76561199223642471",
+      instagram: "",
+      twitch: ""
+    }
+  },
+  "Kiruha": {
+    description: "Майстер з точності та стабільності. Один з ключових членів команди у клатч-ситуаціях.",
+    socials: {
+      steam: "https://steamcommunity.com/profiles/76561199046070249",
+      instagram: "",
+      twitch: ""
+    }
+  },
+  "Shootka": {
+    description: "Майстер з точності та стабільності. Один з ключових членів команди у клатч-ситуаціях.",
+    socials: {
+      steam: "https://steamcommunity.com/id/1559507142",
+      instagram: "",
+      twitch: ""
+    }
+  },
+  "Ilty": {
+    description: "Майстер з точності та стабільності. Один з ключових членів команди у клатч-ситуаціях.",
+    socials: {
+      steam: "https://steamcommunity.com/id/lItycs/",
+      instagram: "",
+      twitch: ""
+    }
+  }
+  
+  // додаєш інших за потреби
+};
+
+"Логіка відкриття інформації про гравців"
+document.querySelectorAll(".player-card").forEach(card => {
+  card.addEventListener("click", () => {
+    // Закривати інші відкриті картки
+    document.querySelectorAll(".player-card.expanded").forEach(opened => {
+      if (opened !== card) opened.classList.remove("expanded");
+    });
+
+    card.classList.toggle("expanded");
+
+    const name = card.querySelector("h3").textContent.trim();
+
+    if (playersInfo[name]) {
+      const descBox = card.querySelector(".player-description");
+      const socialsBox = card.querySelector(".player-socials");
+
+      descBox.textContent = playersInfo[name].description;
+
+      // соц мережі
+      socialsBox.innerHTML = "";
+      for (const [platform, url] of Object.entries(playersInfo[name].socials)) {
+        if (url.trim() !== "") {
+          const icon = document.createElement("a");
+          icon.href = url;
+          icon.target = "_blank";
+          icon.innerHTML = platform[0].toUpperCase(); // тимчасова буква-іконка
+          socialsBox.appendChild(icon);
+        }
+      }
+    }
+  });
+});
