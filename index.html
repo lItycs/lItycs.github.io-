@@ -42,17 +42,23 @@
     </div>
   </section>
 
-  <!-- ===== EVENTS ===== -->
-  <section class="section glass-section" id="events">
-    <h2 class="section-title">Наші Івенти</h2>
-    <div class="cards-grid">
-      <div class="event-card glass">
-        <h3>CS 1 vs 1</h3>
-        <p>Локальний турнір серед гравців команди.</p>
-        <span>Жовтень 2025</span>
-      </div>
+<!-- ===== EVENTS ===== -->
+<section class="section glass-section" id="events">
+  <h2 class="section-title">Наші Івенти</h2>
+
+  <div class="cards-grid">
+    
+    <!-- Картка Івенту CS 1vs1 -->
+    <div class="event-card glass" data-event-id="cs1v1">
+      <h3>CS 1 vs 1</h3>
+      <p>Локальний турнір серед гравців команди.</p>
+      <span>Жовтень 2025</span>
+      <!-- JS автоматично додасть .event-meta тут -->
     </div>
-  </section>
+
+  </div>
+</section>
+
 
   <!-- ===== TEAM ===== -->
   <section class="section" id="team">
@@ -200,6 +206,44 @@
     </div>
     <p class="copy">© 2025 DURMIND</p>
   </footer>
+
+  <!-- ===== TOURNAMENT MODAL ===== -->
+<div id="tournamentModal" class="modal hidden" aria-hidden="true">
+  <div class="modal-backdrop" data-close></div>
+
+  <div class="modal-inner glass">
+    <button class="modal-close" aria-label="Close modal" data-close>✕</button>
+
+    <header class="modal-header">
+      <div>
+        <h3 id="modalTitle">Назва турніру</h3>
+        <p id="modalMeta" class="muted">Дата • Статус • Переможець</p>
+      </div>
+      <div class="modal-actions" id="modalActions">
+        <!-- наприклад кнопка Live / Replay -->
+      </div>
+    </header>
+
+    <section class="modal-body">
+      <div class="tournament-info">
+        <img id="modalImage" src="" alt="" class="tournament-image hidden">
+        <div class="tournament-details">
+          <p id="modalDescription" class="muted"></p>
+          <p><strong>Переможець:</strong> <span id="modalWinner">—</span></p>
+        </div>
+      </div>
+
+      <div class="brackets-wrap" id="bracketsWrap" aria-live="polite">
+        <!-- Тут JS згенерує блочну сітку -->
+      </div>
+    </section>
+
+    <footer class="modal-footer">
+      <button class="primary-btn" data-close>Закрити</button>
+    </footer>
+  </div>
+</div>
+<!-- ===== /TOURNAMENT MODAL ===== -->
 
   <script src="./JS/Main.js"></script>
 </body>
